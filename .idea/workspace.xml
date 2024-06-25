@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c87d824-f5af-49aa-95ca-b868791a7e39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sample.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/BrifleConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/ConnectorSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/Api.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/ApiMode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/requests/MailTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/requests/ReceiverRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/requests/SendContentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/responses/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/responses/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/responses/authentication/SuccessfulAuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/responses/content/CheckReceiverResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/responses/content/SendContentResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/api/requests/CheckReceiverRequestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Willkommensbrief-4.pdf" afterDir="false" />
-    </list>
+    <list default="true" id="4c87d824-f5af-49aa-95ca-b868791a7e39" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
