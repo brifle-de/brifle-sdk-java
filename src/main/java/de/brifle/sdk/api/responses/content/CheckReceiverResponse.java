@@ -2,9 +2,17 @@ package de.brifle.sdk.api.responses.content;
 
 public class CheckReceiverResponse {
 
-    private String type;
+    Receiver receiver;
 
-    public String getType() {
-        return type;
+    public Receiver getReceiver() {
+        return receiver;
+    }
+
+    public class Receiver {
+        private String type;
+
+        public String getType() {
+            return type;
+        }
     }
 }

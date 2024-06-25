@@ -1,8 +1,11 @@
 package de.brifle.sdk.api.requests;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReceiverRequest {
 
     @JsonProperty("account_id")
@@ -312,55 +315,55 @@ public class ReceiverRequest {
     }
 
 
-    public static  class ContactDataBuilder{
-
-        protected String name;
-        protected String dateOfBirth;
-
-        protected ContactDataBuilder() {
-        }
-
-        public ContactDataBuilder withName(String name){
-            this.name = name;
-            return this;
-        }
-
-        public ContactDataBuilder withDateOfBirth(String dateOfBirth){
-            this.dateOfBirth = dateOfBirth;
-            return this;
-        }
+    public static interface ContactDataBuilder{
 
 
-        /**
-         * gets the dateOfBirth
-         *
-         * @return the dateOfBirth
-         */
-        public String getDateOfBirth() {
-            return dateOfBirth;
-        }
+        public ContactDataBuilder withDateOfBirth(String dateOfBirth);
+        public ContactDataBuilder withName(String name);
 
-        /**
-         * gets the name
-         *
-         * @return the name
-         */
-        public String getName() {
-            return name;
-        }
+        public String getName();
+
+        public String getDateOfBirth();
+        public ReceiverRequest buildRequest();
     }
 
-    public static class EmailBuilder extends ContactDataBuilder {
+    public static class EmailBuilder implements ContactDataBuilder {
         private String email;
+        private String name;
+        private String dateOfBirth;
 
         protected EmailBuilder() {
         }
+
+
 
         public EmailBuilder withEmail(String email) {
             this.email = email;
             return this;
         }
 
+
+        @Override
+        public ContactDataBuilder withDateOfBirth(String dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+            return this;
+        }
+
+        @Override
+        public ContactDataBuilder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        @Override
+        public String getName() {
+            return this.name;
+        }
+
+        @Override
+        public String getDateOfBirth() {
+            return this.dateOfBirth;
+        }
 
         public ReceiverRequest buildRequest() {
             ReceiverRequest request = new ReceiverRequest();
@@ -371,8 +374,10 @@ public class ReceiverRequest {
         }
     }
 
-    public class PhoneNumberBuilder extends ContactDataBuilder{
+    public class PhoneNumberBuilder implements ContactDataBuilder{
         private String phoneNumber;
+        private String name;
+        private String dateOfBirth;
 
         protected PhoneNumberBuilder() {
         }
@@ -380,6 +385,28 @@ public class ReceiverRequest {
         public PhoneNumberBuilder withPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
+        }
+
+        @Override
+        public ContactDataBuilder withDateOfBirth(String dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+            return this;
+        }
+
+        @Override
+        public ContactDataBuilder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        @Override
+        public String getName() {
+            return this.name;
+        }
+
+        @Override
+        public String getDateOfBirth() {
+            return this.dateOfBirth;
         }
 
         public ReceiverRequest buildRequest() {
