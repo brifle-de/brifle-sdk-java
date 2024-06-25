@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
+}
+
+
+def loadProperties() {
+    def properties = new Properties()
+    def localPropertiesFile = file('env.properties')
+    if (localPropertiesFile.exists()) {
+        localPropertiesFile.withInputStream { stream ->
+            properties.load(stream)
+        }
+    }
+    return properties
+}
+
+// Load properties from gradle.properties
+def properties = loadProperties()
+
+test {
+    useJUnitPlatform()
+    // Set environment variables for the test task
+    properties.each { key, value ->
+        systemProperty key, value
+    }
+}
