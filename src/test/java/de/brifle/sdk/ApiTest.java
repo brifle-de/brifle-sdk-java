@@ -1,18 +1,23 @@
 package de.brifle.sdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import de.brifle.sdk.api.Api;
 import de.brifle.sdk.api.ApiMode;
+import de.brifle.sdk.api.requests.CreateSignatureReferenceRequest;
 import de.brifle.sdk.api.requests.MailTypes;
 import de.brifle.sdk.api.requests.ReceiverRequest;
 import de.brifle.sdk.api.requests.SendContentRequest;
 import de.brifle.sdk.api.responses.ApiResponse;
 import de.brifle.sdk.api.responses.authentication.SuccessfulAuthenticationResponse;
 import de.brifle.sdk.api.responses.content.CheckReceiverResponse;
+import de.brifle.sdk.api.responses.content.GetContentResponse;
 import de.brifle.sdk.api.responses.content.SendContentResponse;
+import de.brifle.sdk.api.responses.signatures.CreateSignatureReferenceResponse;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class ApiTest {
 
@@ -23,7 +28,10 @@ public class ApiTest {
         String key = System.getProperty("BRIFLE_KEY");
         Api api = new Api(ApiMode.SANDBOX);
         try {
-            SuccessfulAuthenticationResponse response = api.authenticate(key, secret).getData();
+            SuccessfulAuthenticationResponse response = api
+                    .auth()
+                    .authenticate(key, secret)
+                    .getData();
             return response.getAccessToken();
         } catch (Exception e) {
             e.printStackTrace();
@@ -41,7 +49,10 @@ public class ApiTest {
          String key = System.getProperty("BRIFLE_KEY");
 
         try {
-            SuccessfulAuthenticationResponse response = api.authenticate(key, secret).getData();
+            SuccessfulAuthenticationResponse response = api
+                    .auth()
+                    .authenticate(key, secret)
+                    .getData();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,7 +74,7 @@ public class ApiTest {
                     .withName(System.getProperty("BRIFLE_EXISTING_USER_FULLNAME"))
                     .buildRequest();
 
-            CheckReceiverResponse re = api.checkReceiver(token, request).getData();
+            CheckReceiverResponse re = api.content().checkReceiver(token, request).getData();
 
 
             ReceiverRequest request2 = ReceiverRequest
@@ -74,7 +85,7 @@ public class ApiTest {
                     .withPlaceOfBirth(System.getProperty("BRIFLE_EXISTING_USER_2_PLACE_OF_BIRTH"))
                     .buildRequest();
 
-            CheckReceiverResponse re2 = api.checkReceiver(token, request2).getData();
+            CheckReceiverResponse re2 = api.content().checkReceiver(token, request2).getData();
 
             assert re.getReceiver().getType().equals("email");
             assert re2.getReceiver().getType().equals("birth_info");
@@ -98,7 +109,7 @@ public class ApiTest {
                 .withName("Max Mustermann")
                 .buildRequest();
 
-        ApiResponse<CheckReceiverResponse> re = api.checkReceiver(token, request);
+        ApiResponse<CheckReceiverResponse> re = api.content().checkReceiver(token, request);
         assert re.isError();
         assert !re.isSuccess();
         assert re.getData() == null;
@@ -107,13 +118,10 @@ public class ApiTest {
         assert re.getError().getCode() == 40401;
         assert re.getError().getStatus() == 404;
 
-
-
-
     }
 
     @Test
-    public void testSend() throws IOException, InterruptedException {
+    public void testSendAndGet() throws IOException, InterruptedException {
         // read from resources
         InputStream contentStream = this.getClass().getClassLoader().getResourceAsStream("Willkommensbrief-4.pdf");
         byte[] content = contentStream.readAllBytes();
@@ -140,7 +148,139 @@ public class ApiTest {
                 .withType(MailTypes.LETTER)
                 .build();
 
-        SendContentResponse res = api.sendContent(token, tenant, request).getData();
+        SendContentResponse res = api.content().sendContent(token, tenant, request).getData();
+        String id = res.getId();
+
+        ApiResponse<GetContentResponse> getRes = api
+                .content()
+                .getContent(token,id);
+
+        assert getRes.getData() != null;
+        assert getRes.getData().getContent() != null;
+        assert getRes.getData().getContent().size() == 1;
+        assert getRes.getData().getMeta() != null;
+        assert getRes.getData().getMeta().getSender().equals(tenant);
+        assert getRes.getData().getMeta().getSubject().equals("Willkommensbrief");
+        assert getRes.getData().getMeta().getType().equals("letter");
+
+
+
         assert content != null;
     }
+
+    @Test
+    public void testContract() throws IOException, InterruptedException {
+        // read from resources
+        InputStream contentStream = this.getClass().getClassLoader().getResourceAsStream("Willkommensbrief-4.pdf");
+        byte[] content = contentStream.readAllBytes();
+        // to base64
+        String base64 = java.util.Base64.getEncoder().encodeToString(content);
+
+        String token = getToken();
+
+        Api api = new Api(ApiMode.SANDBOX);
+
+        ReceiverRequest to = ReceiverRequest
+                .byEmail()
+                .withEmail(System.getProperty("BRIFLE_EXISTING_USER_EMAIL"))
+                .withDateOfBirth(System.getProperty("BRIFLE_EXISTING_USER_DATE_OF_BIRTH"))
+                .withName(System.getProperty("BRIFLE_EXISTING_USER_FULLNAME"))
+                .buildRequest();
+
+        // request signature reference
+        CreateSignatureReferenceRequest request = CreateSignatureReferenceRequest
+                .builder()
+                .addField("FeldName", "FeldRolle","Der Zweck")
+                .addField("FeldName2", "FeldRolle2","Der Zweck2")
+                .build();
+
+        ApiResponse<CreateSignatureReferenceResponse> res = api
+                .signatures()
+                .createSignatureReference(token, System.getProperty("BRIFLE_TEST_TENANT"), request);
+
+        // send content
+        String tenant = System.getProperty("BRIFLE_TEST_TENANT");
+
+        SendContentRequest.SignatureInfo signatureInfo = SendContentRequest.SignatureInfo
+                .builder()
+                .withSignatureReference(res.getData().getId())
+                .addSenderSignature("FeldName")
+                .addReceiverSignature("FeldName2")
+                .build();
+
+        SendContentRequest request2 = SendContentRequest.builder()
+                .withSubject("Testvertrag")
+                .withTo(to)
+                .addPdfToBody(base64)
+                .withType(MailTypes.CONTRACT)
+                .withSignatureInfo(signatureInfo)
+                .build();
+
+        String json = new ObjectMapper().writeValueAsString(request2);
+
+        SendContentResponse res3 = api.content().sendContent(token, tenant, request2).getData();
+        String id = res3.getId();
+
+        ApiResponse<GetContentResponse> getRes = api
+                .content()
+                .getContent(token,id);
+
+        assert getRes.getData() != null;
+        assert getRes.getData().getContent() != null;
+        assert getRes.getData().getContent().size() == 1;
+        assert getRes.getData().getMeta() != null;
+        assert getRes.getData().getMeta().getSender().equals(tenant);
+        assert getRes.getData().getMeta().getSubject().equals("Testvertrag");
+        assert getRes.getData().getMeta().getType().equals("contract");
+
+
+        assert content != null;
+
+    }
+
+    @Test
+    public void requestSignatureReference() throws IOException, InterruptedException {
+        String token = getToken();
+        Api api = new Api(ApiMode.SANDBOX);
+
+        CreateSignatureReferenceRequest request = CreateSignatureReferenceRequest
+                .builder()
+                .addField("FeldName", "FeldRolle","Der Zweck")
+                .addField("FeldName2", "FeldRolle2","Der Zweck2")
+                .build();
+
+        assert request.getFields().size() == 2;
+        assert request.getFields().get(0).getName().equals("FeldName");
+        assert request.getFields().get(0).getRole().equals("FeldRolle");
+        assert request.getFields().get(0).getPurpose().equals("Der Zweck");
+
+        assert request.getFields().get(1).getName().equals("FeldName2");
+        assert request.getFields().get(1).getRole().equals("FeldRolle2");
+        assert request.getFields().get(1).getPurpose().equals("Der Zweck2");
+
+         ApiResponse<CreateSignatureReferenceResponse> res = api
+                .signatures()
+                .createSignatureReference(token, System.getProperty("BRIFLE_TEST_TENANT"), request);
+
+        assert res.getData() != null;
+
+        String jsonFields = res.getData().getSignatureFields();
+        List<CreateSignatureReferenceRequest.Field> fields = new ObjectMapper()
+                .readValue(jsonFields, List.class)
+                .stream().map(o -> new ObjectMapper().convertValue(o, CreateSignatureReferenceRequest.Field.class))
+                .toList();
+
+        assert fields.size() == 2;
+        assert fields.get(0).getName().equals("FeldName");
+        assert fields.get(0).getRole().equals("FeldRolle");
+        assert fields.get(0).getPurpose().equals("Der Zweck");
+
+        assert fields.get(1).getName().equals("FeldName2");
+        assert fields.get(1).getRole().equals("FeldRolle2");
+        assert fields.get(1).getPurpose().equals("Der Zweck2");
+
+        assert res.getData().getId().length() > 10;
+
+    }
+
 }
