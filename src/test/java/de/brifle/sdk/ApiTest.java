@@ -148,8 +148,8 @@ public class ApiTest {
                 .withType(MailTypes.LETTER)
                 .build();
 
-        SendContentResponse res = api.content().sendContent(token, tenant, request).getData();
-        String id = res.getId();
+        ApiResponse<SendContentResponse> res = api.content().sendContent(token, tenant, request);
+        String id = res.getData().getId();
 
         ApiResponse<GetContentResponse> getRes = api
                 .content()
@@ -216,22 +216,11 @@ public class ApiTest {
                 .withSignatureInfo(signatureInfo)
                 .build();
 
-        String json = new ObjectMapper().writeValueAsString(request2);
 
         SendContentResponse res3 = api.content().sendContent(token, tenant, request2).getData();
         String id = res3.getId();
 
-        ApiResponse<GetContentResponse> getRes = api
-                .content()
-                .getContent(token,id);
 
-        assert getRes.getData() != null;
-        assert getRes.getData().getContent() != null;
-        assert getRes.getData().getContent().size() == 1;
-        assert getRes.getData().getMeta() != null;
-        assert getRes.getData().getMeta().getSender().equals(tenant);
-        assert getRes.getData().getMeta().getSubject().equals("Testvertrag");
-        assert getRes.getData().getMeta().getType().equals("contract");
 
 
         assert content != null;

@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c87d824-f5af-49aa-95ca-b868791a7e39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/endpoints/AuthEndpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/endpoints/ContentEndpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/endpoints/EndpointBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/endpoints/SignaturesEndpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/requests/CreateSignatureReferenceRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/responses/content/GetContentResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/responses/signatures/CreateSignatureReferenceResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/Crypto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/IsoDateConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/HMacHeaderMissingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/HMacValidationFailedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/CsvOperator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvBirthInformationRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvEmailRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvReceiverRecordType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvTelRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/helper/CSVBuilderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/helper/operators/CsvOperatorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/operators/csv/expected-tampered.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/operators/csv/expected.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/Api.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/requests/SendContentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/api/requests/SendContentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +59,7 @@
       <list>
         <option value="package-info" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -68,30 +76,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/brifle/brifleJavaSDK&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/brifle/brifleJavaSDK/src/test/resources/operators/csv",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\brifle\brifleJavaSDK\src\test\resources\operators\csv" />
+      <recent name="C:\brifle\brifleJavaSDK\src\test\resources\operators" />
       <recent name="C:\brifle\brifleJavaSDK" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\brifle\brifleJavaSDK\src\test\resources\operators\csv" />
       <recent name="C:\brifle\brifleJavaSDK\src\test\resources" />
       <recent name="C:\Users\marvin\OneDrive\Desktop\brifleJavaSDK" />
       <recent name="C:\Users\marvin\OneDrive\Desktop\brifleJavaSDK\src\test\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.brifle.sdk.helper.operators.csv" />
       <recent name="de.brifle.sdk.api.endpoints" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ApiTest.testContract">
-    <configuration name="ApiTest.requestSignatureReference" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle test" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.CsvOperatorTest.readWrongKeyCorrect">
+    <configuration name="CSVBuilderTest.buildCSV" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -104,7 +121,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.ApiTest.requestSignatureReference&quot;" />
+            <option value="&quot;de.brifle.sdk.helper.CSVBuilderTest.buildCSV&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -114,7 +131,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ApiTest.testContract" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CsvOperatorTest.createFile" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -127,7 +144,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.ApiTest.testContract&quot;" />
+            <option value="&quot;de.brifle.sdk.helper.operators.CsvOperatorTest.createFile&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -137,7 +154,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ApiTest.testReceiverNotExisting" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CsvOperatorTest.readCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -150,7 +167,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.ApiTest.testReceiverNotExisting&quot;" />
+            <option value="&quot;de.brifle.sdk.helper.operators.CsvOperatorTest.readCorrect&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -160,7 +177,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ApiTest.testSend (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CsvOperatorTest.readTamperedCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -173,7 +190,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.ApiTest.testSend&quot;" />
+            <option value="&quot;de.brifle.sdk.helper.operators.CsvOperatorTest.readTamperedCorrect&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -183,7 +200,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ApiTest.testSendAndGet" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CsvOperatorTest.readWrongKeyCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -196,7 +213,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.ApiTest.testSendAndGet&quot;" />
+            <option value="&quot;de.brifle.sdk.helper.operators.CsvOperatorTest.readWrongKeyCorrect&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -208,11 +225,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ApiTest.testContract" />
-        <item itemvalue="Gradle.ApiTest.testSendAndGet" />
-        <item itemvalue="Gradle.ApiTest.requestSignatureReference" />
-        <item itemvalue="Gradle.ApiTest.testSend (1)" />
-        <item itemvalue="Gradle.ApiTest.testReceiverNotExisting" />
+        <item itemvalue="Gradle.CsvOperatorTest.readWrongKeyCorrect" />
+        <item itemvalue="Gradle.CsvOperatorTest.readTamperedCorrect" />
+        <item itemvalue="Gradle.CsvOperatorTest.readCorrect" />
+        <item itemvalue="Gradle.CsvOperatorTest.createFile" />
+        <item itemvalue="Gradle.CSVBuilderTest.buildCSV" />
       </list>
     </recent_temporary>
   </component>
@@ -248,38 +265,48 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/build.gradle</url>
-          <line>37</line>
+          <line>38</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/build.gradle</url>
-          <line>27</line>
+          <line>28</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>260</line>
+          <line>249</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>279</line>
+          <line>268</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>281</line>
+          <line>270</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>272</line>
+          <line>261</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>220</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/helper/operators/CsvOperatorTest.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVBuilder.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVBuilder.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
