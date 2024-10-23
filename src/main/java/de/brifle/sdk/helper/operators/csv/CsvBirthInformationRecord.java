@@ -114,7 +114,7 @@ public class CsvBirthInformationRecord implements CsvReceiverRecordType{
     @Override
     public CsvReceiverRecordType setValues(String[] values) {
         if (values.length != 6) {
-            throw new IllegalArgumentException("values length must be 5");
+            throw new IllegalArgumentException("values length must be "+values.length);
         }
         externalId = values[0];
         firstName = values[1];

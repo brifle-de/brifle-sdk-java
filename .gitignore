@@ -45,3 +45,8 @@ bin/
 
 ### ignore env properties ###
 env.properties
+publish.properties
+
+
+
+```

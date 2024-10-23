@@ -99,7 +99,7 @@ public class CsvTelRecord implements CsvReceiverRecordType{
     @Override
     public CsvReceiverRecordType setValues(String[] values) {
         if(values.length != 5){
-            throw new IllegalArgumentException("values array must have a length of 4");
+            throw new IllegalArgumentException("values length must be "+values.length);
         }
         externalId = values[0];
         phoneNumber = values[1];

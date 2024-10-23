@@ -1,10 +1,59 @@
 plugins {
     id 'java'
+    id 'maven-publish'
+    id 'org.jreleaser' version '1.14.0'
 }
 
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'de.brifle'
+version '0.1.0'
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'de.brifle'
+            artifactId = 'brifle-sdk-java'
+            version = '0.1.0'
+
+            from components.java
+
+            pom {
+                name = 'brifle-sdk-java'
+                description = 'Sample application'
+                url = 'https://github.com/brifle-de/brifle-sdk-java'
+                inceptionYear = '2023'
+                licenses {
+                    license {
+                        name = 'MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'brifle'
+                        name = 'Brifle GmbH'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/brifle-de/brifle-sdk-java.git'
+                    developerConnection = 'scm:git:ssh://github.com/brifle-de/brifle-sdk-java.git'
+                    url = 'https://github.com/brifle-de/brifle-sdk-java'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = layout.buildDirectory.dir('staging-deploy')
+        }
+    }
+}
+
 
 repositories {
     mavenCentral()
@@ -37,5 +86,24 @@ test {
     // Set environment variables for the test task
     properties.each { key, value ->
         systemProperty key, value
+    }
+}
+
+jreleaser {
+    signing {
+        active = 'ALWAYS'
+        armored = true
+    }
+    deploy {
+        maven {
+            mavenCentral {
+                sonatype {
+                    active = 'ALWAYS'
+                    url = 'https://central.sonatype.com/api/v1/publisher'
+                    stagingRepository('target/staging-deploy')
+                    releaseRepository = true
+                }
+            }
+        }
     }
 }
