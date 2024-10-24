@@ -76,6 +76,36 @@ public class CSVParser {
 
             return this;
         }
+        public CSVParser readString(String csvString, boolean validateHMAC) throws IOException, HMacHeaderMissingException, HMacValidationFailedException {
+            Reader in = new StringReader(csvString);
+            Iterable<CSVRecord> records = csvFormat.parse(in);
+
+            CSVRecord h = records.iterator().next();
+            // get the header
+            header = new String[h.size()];
+            for (int i = 0; i < h.size(); i++) {
+                header[i] = h.get(i);
+            }
+            this.hasHMac = header[0].equals(HMAC_HEADER);
+
+            // check if the HMAC header is missing
+            if (validateHMAC && !this.hasHMac) {
+                throw new HMacHeaderMissingException();
+            }
+
+            // remove the HMAC header
+            if(this.hasHMac){
+                // remove the HMAC header
+                String[] newHeader = new String[header.length - 1];
+                System.arraycopy(header, 1, newHeader, 0, header.length - 1);
+                header = newHeader;
+            }
+
+            // add rows
+            loadRows(records, false);
+
+            return this;
+        }
 
     private void loadRows(Iterable<CSVRecord> records , boolean validateHMAC) throws HMacValidationFailedException {
         while (records.iterator().hasNext()) {

@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c87d824-f5af-49aa-95ca-b868791a7e39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/jrelease.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="4c87d824-f5af-49aa-95ca-b868791a7e39" name="Changes" comment="Minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvBirthInformationRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvBirthInformationRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/CsvOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/CsvOperator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,39 +108,26 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle test" />
-      <command value="gradle clean" />
-      <command value="gradle jreleaserConfig" />
-      <command value="gradle jreleaserConfigPackage" />
-      <command value="gradle jreleaserPackage" />
-      <command value="gradle build" />
-      <command value="gradle jreleaserAssemble" />
-      <command value="gradle jreleaserRelease" />
-      <command value="gradle jreleaserFullRelease" />
       <command value="gradle publish" />
+      <command value="gradle jreleaserRelease" />
+      <command value="gradle jreleaserRelease --project-version  0.1.2" />
+      <command value="gradle jreleaserPrepare" />
+      <command value="gradle jreleaserUpload" />
+      <command value="gradle jreleaserDeploy -Pversion=0.1.1" />
+      <command value="gradle clean" />
+      <command value="gradle build" />
+      <command value="gradle jreleaserConfigPackage" />
+      <command value="gradle jreleaserConfig" />
+      <command value="gradle jreleaserDeploy" />
+      <command value="gradle jreleaserPackage" />
+      <command value="gradle jreleaserSigning" />
+      <command value="gradle jreleaserSign" />
+      <command value="gradle jreleaserFullRelease" />
+      <command value="gradle jreleaserFullRelease --dryrun " />
+      <command value="gradle jreleaserAssemble" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.brifleJavaSDK [jreleaserRelease]">
-    <configuration name="brifleJavaSDK [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.brifleJavaSDK [jreleaserAssemble]">
     <configuration name="brifleJavaSDK [jreleaserAssemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -166,12 +149,34 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="brifleJavaSDK [jreleaserFullRelease --dryrun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jreleaserFullRelease" />
+            <option value="--dryrun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="brifleJavaSDK [jreleaserFullRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--stacktrace" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -187,7 +192,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="brifleJavaSDK [jreleaserRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="brifleJavaSDK [jreleaserSign]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -198,7 +203,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="jreleaserRelease" />
+            <option value="jreleaserSign" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -208,7 +213,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="brifleJavaSDK [publish]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="brifleJavaSDK [jreleaserSigning]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -219,7 +224,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="publish" />
+            <option value="jreleaserSigning" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -231,11 +236,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.brifleJavaSDK [jreleaserRelease]" />
-        <item itemvalue="Gradle.brifleJavaSDK [publish]" />
-        <item itemvalue="Gradle.brifleJavaSDK [jreleaserFullRelease]" />
         <item itemvalue="Gradle.brifleJavaSDK [jreleaserAssemble]" />
-        <item itemvalue="Gradle.brifleJavaSDK [build]" />
+        <item itemvalue="Gradle.brifleJavaSDK [jreleaserFullRelease]" />
+        <item itemvalue="Gradle.brifleJavaSDK [jreleaserSign]" />
+        <item itemvalue="Gradle.brifleJavaSDK [jreleaserSigning]" />
+        <item itemvalue="Gradle.brifleJavaSDK [jreleaserFullRelease --dryrun]" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +253,14 @@
       <option name="presentableId" value="Default" />
       <updated>1719325991944</updated>
     </task>
+    <task id="LOCAL-00001" summary="Minor changes">
+      <created>1729769159912</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729769159912</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,6 +273,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -303,16 +320,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/helper/operators/CsvOperatorTest.java</url>
           <line>47</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVBuilder.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVBuilder.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -6,7 +6,7 @@ plugins {
 
 
 group 'de.brifle'
-version '0.1.0'
+version '0.1.2'
 
 
 java {
@@ -19,7 +19,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'de.brifle'
             artifactId = 'brifle-sdk-java'
-            version = '0.1.0'
+            version = '0.1.2'
 
             from components.java
 
@@ -105,7 +105,7 @@ jreleaser {
 
     project {
         name = 'Brifle Java SDK'
-        version = '0.1.0'
+        version = '0.1.2'
         description = 'Brifle Java SDK'
         copyright = 'Copyright © 2024 Brifle GmbH'
     }

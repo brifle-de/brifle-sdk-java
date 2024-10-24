@@ -107,6 +107,27 @@ public class CsvOperator<Type extends CsvReceiverRecordType> {
             .collect(Collectors.toList());
     }
 
+    public List<Type> readCsvString(String csvString) throws HMacValidationFailedException, HMacHeaderMissingException, IOException {
+        // read record from csv file
+        CSVParser parser = new CSVParser(macKey);
+        boolean validateHMAC = macKey != null && !macKey.isEmpty();
+        parser.readString(csvString, validateHMAC);
+        String[][] records = parser.getRows();
+        return Stream
+            .of(records)
+            .map(record -> {
+                try {
+                    Type newRecord = recordType.getConstructor().newInstance();
+                    newRecord.setValues(record);
+                    return newRecord;
+                } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException ignored) {
+                    return null;
+                }
+            })
+            .filter(record -> record != null)
+            .collect(Collectors.toList());
+    }
+
 
 
 }
