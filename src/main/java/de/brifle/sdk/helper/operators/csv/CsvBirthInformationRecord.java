@@ -105,7 +105,7 @@ public class CsvBirthInformationRecord implements CsvReceiverRecordType{
                 externalId,
                 firstName,
                 lastName,
-                IsoDateConverter.toIsoString(birthDate),
+                IsoDateConverter.toIsoStringShort(birthDate),
                 birthPlace,
                 path
         };

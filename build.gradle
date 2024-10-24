@@ -8,6 +8,7 @@ plugins {
 group 'de.brifle'
 version '0.1.0'
 
+
 java {
     withJavadocJar()
     withSourcesJar()
@@ -24,7 +25,7 @@ publishing {
 
             pom {
                 name = 'brifle-sdk-java'
-                description = 'Sample application'
+                description = 'Brifle Java SDK'
                 url = 'https://github.com/brifle-de/brifle-sdk-java'
                 inceptionYear = '2023'
                 licenses {
@@ -42,6 +43,7 @@ publishing {
                     connection = 'scm:git:https://github.com/brifle-de/brifle-sdk-java.git'
                     developerConnection = 'scm:git:ssh://github.com/brifle-de/brifle-sdk-java.git'
                     url = 'https://github.com/brifle-de/brifle-sdk-java'
+                    tag = 'v${version}'
                 }
             }
         }
@@ -90,20 +92,39 @@ test {
 }
 
 jreleaser {
+    environment {
+        variables = 'jrelease.toml'
+    }
     signing {
         active = 'ALWAYS'
         armored = true
     }
+    assemble {
+        active = 'ALWAYS'
+    }
+
+    project {
+        name = 'Brifle Java SDK'
+        version = '0.1.0'
+        description = 'Brifle Java SDK'
+        copyright = 'Copyright © 2024 Brifle GmbH'
+    }
+
+
     deploy {
         maven {
             mavenCentral {
                 sonatype {
                     active = 'ALWAYS'
                     url = 'https://central.sonatype.com/api/v1/publisher'
-                    stagingRepository('target/staging-deploy')
-                    releaseRepository = true
+                    stagingRepository('build/staging-deploy')
+
+                    //    releaseRepository = false
                 }
             }
         }
     }
+
+
+
 }

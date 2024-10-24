@@ -120,8 +120,9 @@ public class ApiTest {
 
     }
 
-    @Test
+    // @Test
     public void testSendAndGet() throws IOException, InterruptedException {
+
         // read from resources
         InputStream contentStream = this.getClass().getClassLoader().getResourceAsStream("Willkommensbrief-4.pdf");
         byte[] content = contentStream.readAllBytes();

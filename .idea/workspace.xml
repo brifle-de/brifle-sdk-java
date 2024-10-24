@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c87d824-f5af-49aa-95ca-b868791a7e39" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/jrelease.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvBirthInformationRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvBirthInformationRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvEmailRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvEmailRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvTelRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/csv/CsvTelRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +36,23 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="brifleJavaSDK" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="brifleJavaSDK" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="brifleJavaSDK" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="brifleJavaSDK" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -70,7 +89,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/brifle/brifleJavaSDK/src/test/resources/operators/csv&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -93,10 +112,19 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle test" />
+      <command value="gradle clean" />
+      <command value="gradle jreleaserConfig" />
+      <command value="gradle jreleaserConfigPackage" />
+      <command value="gradle jreleaserPackage" />
+      <command value="gradle build" />
+      <command value="gradle jreleaserAssemble" />
+      <command value="gradle jreleaserRelease" />
+      <command value="gradle jreleaserFullRelease" />
+      <command value="gradle publish" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.CsvOperatorTest.readWrongKeyCorrect">
-    <configuration name="CSVBuilderTest.buildCSV" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.brifleJavaSDK [jreleaserRelease]">
+    <configuration name="brifleJavaSDK [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -107,19 +135,17 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.helper.CSVBuilderTest.buildCSV&quot;" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CsvOperatorTest.createFile" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="brifleJavaSDK [jreleaserAssemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -130,42 +156,38 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.helper.operators.CsvOperatorTest.createFile&quot;" />
+            <option value="jreleaserAssemble" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CsvOperatorTest.readCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="brifleJavaSDK [jreleaserFullRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" value="--stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.helper.operators.CsvOperatorTest.readCorrect&quot;" />
+            <option value="jreleaserFullRelease" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CsvOperatorTest.readTamperedCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="brifleJavaSDK [jreleaserRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -176,19 +198,17 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.helper.operators.CsvOperatorTest.readTamperedCorrect&quot;" />
+            <option value="jreleaserRelease" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CsvOperatorTest.readWrongKeyCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="brifleJavaSDK [publish]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -199,25 +219,23 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;de.brifle.sdk.helper.operators.CsvOperatorTest.readWrongKeyCorrect&quot;" />
+            <option value="publish" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CsvOperatorTest.readWrongKeyCorrect" />
-        <item itemvalue="Gradle.CsvOperatorTest.readTamperedCorrect" />
-        <item itemvalue="Gradle.CsvOperatorTest.readCorrect" />
-        <item itemvalue="Gradle.CsvOperatorTest.createFile" />
-        <item itemvalue="Gradle.CSVBuilderTest.buildCSV" />
+        <item itemvalue="Gradle.brifleJavaSDK [jreleaserRelease]" />
+        <item itemvalue="Gradle.brifleJavaSDK [publish]" />
+        <item itemvalue="Gradle.brifleJavaSDK [jreleaserFullRelease]" />
+        <item itemvalue="Gradle.brifleJavaSDK [jreleaserAssemble]" />
+        <item itemvalue="Gradle.brifleJavaSDK [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -253,32 +271,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/build.gradle</url>
-          <line>87</line>
+          <line>89</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/build.gradle</url>
-          <line>77</line>
+          <line>79</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>249</line>
+          <line>250</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>268</line>
+          <line>269</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>270</line>
+          <line>271</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/de/brifle/sdk/ApiTest.java</url>
-          <line>261</line>
+          <line>262</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

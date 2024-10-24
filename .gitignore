@@ -47,6 +47,9 @@ bin/
 env.properties
 publish.properties
 
+### ignore release files ###
+jrelease.toml
+
 
 
 ```
