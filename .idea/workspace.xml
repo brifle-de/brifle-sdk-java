@@ -7,7 +7,6 @@
     <list default="true" id="4c87d824-f5af-49aa-95ca-b868791a7e39" name="Changes" comment="Minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/csv/CSVParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/CsvOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/CsvOperator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,26 +107,47 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle test" />
-      <command value="gradle publish" />
       <command value="gradle jreleaserRelease" />
       <command value="gradle jreleaserRelease --project-version  0.1.2" />
       <command value="gradle jreleaserPrepare" />
       <command value="gradle jreleaserUpload" />
       <command value="gradle jreleaserDeploy -Pversion=0.1.1" />
-      <command value="gradle clean" />
       <command value="gradle build" />
       <command value="gradle jreleaserConfigPackage" />
       <command value="gradle jreleaserConfig" />
-      <command value="gradle jreleaserDeploy" />
       <command value="gradle jreleaserPackage" />
       <command value="gradle jreleaserSigning" />
       <command value="gradle jreleaserSign" />
-      <command value="gradle jreleaserFullRelease" />
       <command value="gradle jreleaserFullRelease --dryrun " />
+      <command value="gradle clean" />
+      <command value="gradle jreleaserFullRelease" />
       <command value="gradle jreleaserAssemble" />
+      <command value="gradle publish" />
+      <command value="gradle jreleaserDeploy" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.brifleJavaSDK [jreleaserAssemble]">
+  <component name="RunManager" selected="Gradle.brifleJavaSDK [publish]">
+    <configuration name="brifleJavaSDK [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="brifleJavaSDK [jreleaserAssemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -149,7 +169,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="brifleJavaSDK [jreleaserFullRelease --dryrun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="brifleJavaSDK [jreleaserDeploy]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -160,8 +180,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="jreleaserFullRelease" />
-            <option value="--dryrun" />
+            <option value="jreleaserDeploy" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -192,7 +211,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="brifleJavaSDK [jreleaserSign]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="brifleJavaSDK [publish]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -203,28 +222,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="jreleaserSign" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="brifleJavaSDK [jreleaserSigning]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jreleaserSigning" />
+            <option value="publish" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -236,11 +234,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.brifleJavaSDK [publish]" />
+        <item itemvalue="Gradle.brifleJavaSDK [clean]" />
+        <item itemvalue="Gradle.brifleJavaSDK [jreleaserDeploy]" />
         <item itemvalue="Gradle.brifleJavaSDK [jreleaserAssemble]" />
         <item itemvalue="Gradle.brifleJavaSDK [jreleaserFullRelease]" />
-        <item itemvalue="Gradle.brifleJavaSDK [jreleaserSign]" />
-        <item itemvalue="Gradle.brifleJavaSDK [jreleaserSigning]" />
-        <item itemvalue="Gradle.brifleJavaSDK [jreleaserFullRelease --dryrun]" />
       </list>
     </recent_temporary>
   </component>

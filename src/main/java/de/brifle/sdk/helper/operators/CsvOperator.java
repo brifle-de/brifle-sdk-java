@@ -74,9 +74,36 @@ public class CsvOperator<Type extends CsvReceiverRecordType> {
     }
 
     /**
+     * write records to csv string
+     * @param records records to write
+     * @return csv string
+     */
+    public String writeCsvString(List<Type> records) {
+        // create new record
+        Type header = null;
+        try {
+            header = recordType.getConstructor().newInstance();
+        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+            header = records.get(0);
+        }
+        // write record to csv file
+        String[] headers = header.getHeader();
+
+        try {
+            CSVBuilder csvBuilder = new CSVBuilder(macKey, headers);
+            for (Type record : records) {
+                csvBuilder.addRow(record.getRecord());
+            }
+            return csvBuilder.build();
+        } catch (NoSuchAlgorithmException | IOException | InvalidKeyException e) {
+            return null;
+        }
+    }
+
+    /**
      * read records from csv file. If a macKey is provided, the HMAC will be validated and the records will be checked for tampering.
      * @param path path to the file
-     * @return
+     * @return list of records
      * @throws HMacValidationFailedException
      * @throws HMacHeaderMissingException
      * @throws IOException
@@ -107,6 +134,14 @@ public class CsvOperator<Type extends CsvReceiverRecordType> {
             .collect(Collectors.toList());
     }
 
+    /**
+     * read records from csv string. If a macKey is provided, the HMAC will be validated and the records will be checked for tampering.
+     * @param csvString
+     * @return
+     * @throws HMacValidationFailedException
+     * @throws HMacHeaderMissingException
+     * @throws IOException
+     */
     public List<Type> readCsvString(String csvString) throws HMacValidationFailedException, HMacHeaderMissingException, IOException {
         // read record from csv file
         CSVParser parser = new CSVParser(macKey);

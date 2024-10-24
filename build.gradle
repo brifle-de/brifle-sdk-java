@@ -111,6 +111,7 @@ jreleaser {
     }
 
 
+
     deploy {
         maven {
             mavenCentral {
@@ -124,7 +125,17 @@ jreleaser {
             }
         }
     }
-
-
-
 }
+
+task createStagingDir {
+    doLast {
+        def stagingDir = file("$buildDir/staging-deploy")
+        if (!stagingDir.exists()) {
+            stagingDir.mkdirs()
+            println "Created staging-deploy directory at: ${stagingDir.absolutePath}"
+        }
+    }
+}
+
+// Ensure this task runs before deployment
+jreleaserFullRelease.dependsOn createStagingDir
