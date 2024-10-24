@@ -7,7 +7,6 @@
     <list default="true" id="4c87d824-f5af-49aa-95ca-b868791a7e39" name="Changes" comment="Minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/CsvOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/brifle/sdk/helper/operators/CsvOperator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +125,7 @@
       <command value="gradle jreleaserDeploy" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.brifleJavaSDK [publish]">
+  <component name="RunManager" selected="Gradle.brifleJavaSDK [jreleaserDeploy]">
     <configuration name="brifleJavaSDK [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
